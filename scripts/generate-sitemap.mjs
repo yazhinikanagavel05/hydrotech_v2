@@ -1,8 +1,9 @@
 /**
  * Writes `dist/sitemap.xml` and `dist/robots.txt` for the public routes.
  *
- * The production origin comes from VITE_SITE_URL (see .env.example). Run this
- * after `vite build`; `npm run build` chains it automatically.
+ * The production origin comes from VITE_SITE_URL (see .env.example). The
+ * `sitemap` plugin in `vite.config.js` runs this after the bundle is written, so
+ * `vite build` produces it on its own; `npm run sitemap` re-runs it by hand.
  *
  * Only the eight real routes are listed — no query strings, no filtered views.
  */

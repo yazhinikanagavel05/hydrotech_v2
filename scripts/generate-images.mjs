@@ -7,7 +7,8 @@
  * only copy the site serves, and `src/data/images.generated.js` is regenerated
  * from the output.
  *
- * Run with:  npm run images   (also runs automatically as part of `npm run build`)
+ * Run with:  npm run images   (the `responsiveImages` plugin in vite.config.js
+ * also runs it automatically on every `vite` and `vite build`)
  */
 import { readFile, writeFile, readdir, mkdir, rm, stat } from "node:fs/promises";
 import { existsSync } from "node:fs";

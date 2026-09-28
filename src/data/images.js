@@ -9,8 +9,10 @@
  *    originals are never uploaded).
  * 2. `npm run images` resizes them into `public/assets/photos/gen/`, one file per
  *    width, and regenerates `images.generated.js`.
- * 3. `npm run build` runs step 2 automatically, so the published variants can
- *    never fall out of sync with the manifest.
+ * 3. Every `vite` and `vite build` runs step 2 automatically (from the
+ *    `responsiveImages` plugin in `vite.config.js`), so the published variants
+ *    can never fall out of sync with the manifest — and the build does not
+ *    depend on the host choosing a particular npm script.
  *
  * HOW TO REPLACE WITH REAL HYDROTECH PHOTOGRAPHY
  * 1. Add the new masters to `assets/photos/` and remove the demo ones.

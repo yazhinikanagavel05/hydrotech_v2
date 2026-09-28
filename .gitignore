@@ -12,9 +12,10 @@ dist/
 !.env.example
 
 # Generated image pipeline output.
-# Reproduced by `npm run images`, which `npm run build` and `npm run dev`
-# both run automatically. The full-size masters in assets/photos/ are
-# committed on purpose: they are the source of truth for every variant.
+# Reproduced by `npm run images`, which vite.config.js runs automatically on
+# every `vite` and `vite build` — so the build never depends on a host running
+# an `npm run …` wrapper. The full-size masters in assets/photos/ are committed
+# on purpose: they are the source of truth for every variant.
 public/assets/photos/gen/
 src/data/images.generated.js
 
