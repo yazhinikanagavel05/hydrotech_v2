@@ -1,0 +1,10 @@
+/* ============================================================
+   HydroTech Irrigation — stylesheet entry point.
+   Imported once from main.jsx; order matters (tokens → layout → sections).
+   ============================================================ */
+
+@import "./base.css";
+@import "./components.css";
+@import "./layout.css";
+@import "./sections.css";
+@import "./pages.css";

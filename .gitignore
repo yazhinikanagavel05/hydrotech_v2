@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.local
+
+# Environment — never commit real values.
+# .env.example IS committed; it documents the variables without secrets.
+.env
+.env.*
+!.env.example
+
+# Generated image pipeline output.
+# Reproduced by `npm run images`, which `npm run build` and `npm run dev`
+# both run automatically. The full-size masters in assets/photos/ are
+# committed on purpose: they are the source of truth for every variant.
+public/assets/photos/gen/
+src/data/images.generated.js
+
+# Editor / OS noise
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

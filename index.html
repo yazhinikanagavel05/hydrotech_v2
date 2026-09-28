@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#123A2A" />
+    <!-- Favicons: the plant/leaf symbol on its own — never the wordmark, which
+         turns to mush below 32px. Generated from logo-mark.png by
+         `npm run images`. The 512 entry is first so a modern browser uses one
+         sharp image; 192 and 32 are fallbacks. The apple-touch-icon is the same
+         symbol in its light colourway on opaque brand green, because iOS paints
+         a transparent PNG's transparency as black. -->
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/brand/favicon-512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png" />
+
+    <title>HydroTech Irrigation | Irrigation Solutions for Agriculture</title>
+    <meta
+      name="description"
+      content="HydroTech Irrigation builds practical drip, sprinkler and automated irrigation systems for farms, plantations, nurseries, greenhouses, gardens and landscapes in Tamil Nadu."
+    />
+    <!-- Canonical URL is set per-route at runtime by src/hooks/useSeo.js, which
+         is why no static href is declared here. -->
+    <link rel="canonical" href="/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="HydroTech Irrigation" />
+    <meta property="og:title" content="HydroTech Irrigation | Irrigation Solutions for Agriculture" />
+    <meta
+      property="og:description"
+      content="Practical irrigation solutions designed around your crop, land and water. Drip, sprinkler and automated systems for farms, nurseries and landscapes."
+    />
+    <meta property="og:image" content="__IMAGE:hero-drip__" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Filled in at build time by the htmlImagePaths plugin in vite.config.js
+         from the generated image manifest. `imagesrcset` matters here: the hero
+         is full-bleed, so without it a phone would still download the 1800px
+         file for a 390px screen. -->
+    <link
+      rel="preload"
+      as="image"
+      href="__IMAGE:hero-drip__"
+      imagesrcset="__IMAGESET:hero-drip__"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "HydroTech Irrigation",
+        "description": "Irrigation solutions, products and applications for agriculture, horticulture and landscaping in Tamil Nadu.",
+        "telephone": "+91 90809 80339",
+        "email": "tvhydrotechirrigations@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "No.18, P Vellalapatti, Puliyur",
+          "addressLocality": "Karur",
+          "addressRegion": "Tamil Nadu",
+          "postalCode": "639114",
+          "addressCountry": "IN"
+        },
+        "areaServed": "Tamil Nadu, India"
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="padding: 40px; font-family: system-ui, sans-serif; max-width: 640px; margin: 0 auto">
+        <h1>HydroTech Irrigation</h1>
+        <p>Irrigation solutions for farms, plantations, nurseries, greenhouses, gardens and landscapes.</p>
+        <p>Call <a href="tel:+919080980339">90809 80339</a> or <a href="tel:+919585375343">95853 75343</a>.</p>
+        <p>No.18, P Vellalapatti, Puliyur, Karur, Tamil Nadu &ndash; 639114.</p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

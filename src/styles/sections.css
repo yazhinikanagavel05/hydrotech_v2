@@ -1,0 +1,699 @@
+/* ============================================================
+   Home: intro / trust
+   ============================================================ */
+
+.intro {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: clamp(32px, 5vw, 80px);
+  /* Both columns start on the same line. `center` made a tall 4:5 image
+     overhang the copy above and below it, which read as misalignment. */
+  align-items: start;
+}
+.intro__media {
+  position: relative;
+}
+.intro__frame {
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--sand-100);
+  box-shadow: var(--shadow-lg);
+}
+.intro__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--ease-out);
+}
+.intro__frame:hover img {
+  transform: scale(1.04);
+}
+/* Sits inside the photograph, anchored to its bottom-left corner. It used to
+   hang outside the image at `right: -18px`, which pushed it into the column
+   gap, changed the optical left edge of the composition and left only the gap
+   to keep it on screen. */
+.intro__badge {
+  position: absolute;
+  left: clamp(14px, 2vw, 26px);
+  bottom: clamp(14px, 2vw, 26px);
+  max-width: min(250px, calc(100% - 2 * clamp(14px, 2vw, 26px)));
+  padding: 20px 22px;
+  border-radius: var(--r-md);
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+  border-left: 3px solid var(--lime);
+}
+.intro__badge strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  margin-bottom: 5px;
+}
+.intro__badge span {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.intro__body {
+  display: grid;
+  gap: 22px;
+  justify-items: start;
+}
+.factors {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  width: 100%;
+  margin-top: 4px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.factors li {
+  background: #fff;
+  padding: 18px 20px;
+  display: grid;
+  gap: 4px;
+  transition: background-color var(--dur-fast) var(--ease);
+}
+.factors li:hover {
+  background: var(--forest-50);
+}
+.factors strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+}
+.factors span {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+@media (max-width: 520px) {
+  .factors {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 900px) {
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .intro__frame {
+    aspect-ratio: 4 / 3;
+  }
+  .intro__badge {
+    /* On mobile the card drops below the photograph rather than sitting on
+       it, so it is never clipped and never covers the crop. */
+    position: static;
+    max-width: none;
+    margin-top: 16px;
+    padding: 18px 20px;
+  }
+}
+
+/* ============================================================
+   Home: solution trio
+   ============================================================ */
+
+.trio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+@media (max-width: 980px) {
+  .trio {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   Home: process steps
+   ============================================================ */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.step {
+  background: #fff;
+  padding: 34px 28px 36px;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  position: relative;
+  transition: background-color 0.45s var(--ease);
+}
+.step:hover {
+  background: var(--forest-50);
+}
+.step__n {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--forest-600);
+}
+.step::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: var(--lime);
+  transition: width 0.6s var(--ease-out);
+}
+.step:hover::after {
+  width: 100%;
+}
+.step strong {
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  line-height: 1.3;
+}
+.step p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+@media (max-width: 900px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .step {
+    padding: 26px 22px 28px;
+  }
+}
+
+/* ============================================================
+   Home: additional services
+
+   A plain, even grid. This used to be a 12-column bento with 7/5 and 5/7
+   spans, which made the four cards different widths in two ragged rows —
+   it read as accidental masonry rather than a designed collection. Every
+   card is now the same width, the same height, with one gap and one
+   internal rhythm, so the left and right edges line up exactly.
+   ============================================================ */
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+.bento > * {
+  display: flex;
+  min-width: 0;
+}
+.bento > * > * {
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .bento {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   About teaser
+   ============================================================ */
+
+/* The two-image collage. The media column carries its own padding so the
+   smaller foreground image has real room to sit in the bottom-left corner
+   instead of hanging out of the section and colliding with whatever comes
+   next. */
+.about-teaser {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+.about-teaser__media {
+  position: relative;
+  padding: 0 clamp(14px, 1.8vw, 26px) clamp(20px, 2.6vw, 34px) 0;
+}
+.about-teaser__stack {
+  position: relative;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  aspect-ratio: 5 / 4;
+  background: var(--forest-800);
+  box-shadow: var(--shadow-lg);
+}
+.about-teaser__stack img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--ease-out);
+}
+.about-teaser__stack:hover img {
+  transform: scale(1.04);
+}
+.about-teaser__small {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 44%;
+  max-width: 240px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 1;
+  /* A frame in the section's own colour reads as one composed unit; the old
+     paper border drew a light box on a dark green section. */
+  border: 5px solid var(--forest-900);
+  box-shadow: var(--shadow-lg);
+  background: var(--forest-800);
+}
+.about-teaser__small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-teaser__body {
+  display: grid;
+  gap: 20px;
+  justify-items: start;
+}
+/* The bullet list sits on the dark green section, so none of it can use the
+   page's ink colours. Each item is a two-level hierarchy: a near-white title
+   and a soft supporting line beneath it, with the tick in lime. */
+.about-teaser__list {
+  display: grid;
+  gap: 18px;
+  width: 100%;
+  margin-top: 4px;
+}
+.about-teaser__list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  color: var(--on-dark-muted);
+}
+.about-teaser__list svg {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  padding: 3px;
+  border-radius: 50%;
+  color: var(--forest-950);
+  background: var(--lime-soft);
+}
+.about-teaser__item {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+.about-teaser__list strong {
+  display: block;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.012em;
+  color: #fff;
+}
+.about-teaser__desc {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.62;
+  color: var(--on-dark-muted);
+}
+/* Tablet: the columns stack, so the media is full width. The composition is
+   kept but pulled in tighter and moved to the bottom-right, away from the
+   reading edge, and the gap grows so it cannot crowd the copy. */
+@media (max-width: 900px) {
+  .about-teaser {
+    grid-template-columns: 1fr;
+    gap: clamp(36px, 7vw, 56px);
+  }
+  .about-teaser__media {
+    padding: 0 0 clamp(16px, 5vw, 26px) clamp(18px, 6vw, 34px);
+    max-width: 640px;
+  }
+  .about-teaser__small {
+    left: auto;
+    right: 0;
+    bottom: 0;
+    width: 38%;
+    max-width: 190px;
+  }
+}
+/* Phone: one image plus a small companion corner square. The collage survives
+   at a size that leaves the crop itself readable. */
+@media (max-width: 560px) {
+  .about-teaser__small {
+    width: 34%;
+    max-width: 132px;
+    border-width: 4px;
+  }
+}
+
+/* ============================================================
+   CTA band
+   ============================================================ */
+
+.cta {
+  position: relative;
+  overflow: hidden;
+  background: var(--forest-900);
+  color: #fff;
+  isolation: isolate;
+}
+.cta__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.cta__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  /* Decorative wash over the CTA photograph. The buttons and the link inside
+     .cta__inner must stay clickable through it. */
+  pointer-events: none;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(var(--scrim), 0.95) 0%,
+      rgba(var(--scrim-deep), 0.9) 44%,
+      rgba(var(--scrim-deep), 0.7) 74%,
+      rgba(var(--scrim-deep), 0.56) 100%
+    ),
+    linear-gradient(to top, rgba(var(--scrim-deep), 0.4) 0%, rgba(var(--scrim-deep), 0) 34%);
+}
+.cta__inner {
+  /* The shared section rhythm, so the closing block sits at the same distance
+     from the content above it as every other band on the page. */
+  padding-block: var(--section-y);
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(28px, 4vw, 60px);
+  /* Both columns start on the same line. Centring left the contact panel
+     floating mid-height against the copy, and because the two columns are
+     different heights that offset changed at every breakpoint. */
+  align-items: start;
+}
+.cta__body {
+  display: grid;
+  gap: 20px;
+  justify-items: start;
+}
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 4px;
+}
+/* The lead sits between a bright white heading and bright buttons, so the
+   generic --on-dark-muted grey disappears against the photograph. It gets a
+   near-white tone of its own: still a step below the heading, but clearly
+   readable. The `.on-dark` prefix is what keeps it winning over the
+   `.on-dark .t-lead` muted default now that the section carries that class. */
+.on-dark .cta__lead {
+  color: #d7e2d8;
+  max-width: 46ch;
+}
+.cta__side {
+  display: grid;
+  gap: 1px;
+  background: var(--line-dark);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.cta__side a,
+.cta__side div {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 22px 24px;
+  display: grid;
+  gap: 4px;
+  transition: background-color var(--dur-fast) var(--ease);
+}
+.cta__side a:hover {
+  background: rgba(255, 255, 255, 0.11);
+}
+.cta__side small {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--on-photo-accent);
+}
+.cta__side strong {
+  font-size: 1.28rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  line-height: 1.24;
+}
+.cta__side__mail {
+  font-size: 0.98rem;
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+.cta__side p {
+  font-size: 0.9rem;
+  line-height: 1.58;
+  color: var(--on-dark-muted);
+}
+@media (max-width: 900px) {
+  .cta__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.ftr {
+  background: var(--forest-950);
+  color: var(--on-dark);
+  padding-top: clamp(56px, 7vw, 90px);
+  position: relative;
+  overflow: hidden;
+}
+.ftr::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--forest-500), transparent);
+}
+/* The contact column is widened so the email address sits on one line on a
+   desktop, instead of being squeezed into a stack of broken fragments. */
+.ftr__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.62fr) minmax(0, 0.8fr) minmax(0, 1.28fr);
+  gap: clamp(28px, 3.6vw, 48px);
+  padding-bottom: clamp(40px, 5vw, 62px);
+}
+/* The white logo asset is already transparent. Nothing is painted behind it —
+   no plate, no tint, no filter — so it sits straight on the dark footer. */
+.ftr__logo {
+  height: 42px;
+  width: auto;
+  margin-bottom: 22px;
+  background: none;
+}
+.ftr__about p {
+  font-size: 0.93rem;
+  line-height: 1.68;
+  color: var(--on-dark-muted);
+  max-width: 38ch;
+}
+.ftr h3 {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--on-photo-accent);
+  margin-bottom: 18px;
+}
+.ftr__list {
+  display: grid;
+  gap: 11px;
+}
+.ftr__list a {
+  font-size: 0.94rem;
+  color: var(--on-dark-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.ftr__list a::before {
+  content: "";
+  width: 0;
+  height: 1px;
+  background: var(--lime);
+  transition: width var(--dur-fast) var(--ease);
+}
+.ftr__list a:hover {
+  color: #fff;
+}
+.ftr__list a:hover::before {
+  width: 12px;
+}
+.ftr__contact {
+  display: grid;
+  gap: 16px;
+}
+.ftr__contact a,
+.ftr__contact > span {
+  display: flex;
+  gap: 12px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--on-dark-muted);
+}
+.ftr__contact svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--forest-400);
+}
+.ftr__contact a:hover {
+  color: #fff;
+}
+/* Anything a visitor would actually use — a number to call, an address to
+   type — is white. Supporting detail stays muted. The selector is qualified by
+   .ftr__contact so it outranks the muted colour set on the generic rule
+   above, which would otherwise win on specificity. */
+.ftr__contact .ftr__contact__key {
+  color: #fff;
+  font-weight: 600;
+}
+.ftr__contact .ftr__contact__key a {
+  color: #fff;
+  font-weight: 700;
+}
+.ftr__contact .ftr__contact__key a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ftr__contact__mail {
+  /* `normal` keeps the address breaking at its own dots on narrow screens
+     instead of hyphenating it at an arbitrary letter. */
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+@media (min-width: 1200px) {
+  .ftr__contact .ftr__contact__mail {
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+}
+.ftr__contact__maps {
+  font-size: 0.86rem;
+  color: var(--lime-soft);
+  gap: 8px;
+}
+.ftr__contact__maps:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ftr__bottom {
+  border-top: 1px solid var(--line-dark);
+  padding-block: 24px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 0.8rem;
+  color: var(--on-dark-muted);
+}
+.ftr__bottom a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 1100px) {
+  .ftr__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .ftr__grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+}
+
+/* ============================================================
+   Mobile sticky contact bar
+   ============================================================ */
+
+.callbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-sticky);
+  display: none;
+  gap: 1px;
+  background: var(--line-dark);
+  border-top: 1px solid var(--line-dark);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.callbar a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 11px 6px 12px;
+  background: var(--forest-900);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  min-height: var(--callbar-h);
+}
+.callbar a svg {
+  color: var(--lime);
+}
+.callbar__enquiry {
+  background: var(--lime) !important;
+  color: var(--forest-950) !important;
+}
+.callbar__enquiry svg {
+  color: var(--forest-950) !important;
+}
+@media (max-width: 900px) {
+  .callbar {
+    display: flex;
+  }
+  body {
+    padding-bottom: var(--callbar-h);
+  }
+  .callbar + * {
+    margin-bottom: 0;
+  }
+}

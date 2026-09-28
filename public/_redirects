@@ -1,0 +1,11 @@
+# Static host SPA fallback.
+#
+# The site uses client-side routing, so any unknown path must be served the
+# built index.html instead of returning 404. Netlify and Cloudflare Pages read
+# this file automatically. On Vercel see vercel.json; on other hosts add the
+# equivalent rewrite rule.
+#
+# Order matters: real files (assets, images, fonts) are matched first, and only
+# unmatched paths fall through to index.html.
+
+/*    /index.html   200
