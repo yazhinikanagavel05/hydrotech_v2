@@ -80,12 +80,13 @@ export default function ContactForm() {
       return;
     }
     setStatus("sending");
-    try {
-      await simulateSend();
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
+    const { name, phone, location, area, intent, crop } = values;
+    const subject = `Irrigation Enquiry from ${name}`;
+    const body = `Name: ${name}\nPhone: ${phone}\nLocation: ${location}\nArea: ${area}\nPurpose: ${intent}\nCrop: ${crop}`;
+    const a = document.createElement("a");
+    a.href = `mailto:tvhydrotechirrigations@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    a.click();
+    setTimeout(() => setStatus("success"), 500);
   };
 
   if (status === "success") {
@@ -332,11 +333,7 @@ export default function ContactForm() {
           {status === "sending" ? "Preparing…" : "Send enquiry"}
         </Button>
         {status === "sending" && <Loader2 size={18} aria-hidden="true" className="spin" />}
-        <p className="form__note">
-          <Info size={13} style={{ display: "inline", verticalAlign: "-2px", marginRight: 6 }} aria-hidden="true" />
-          Demo form — this build has no mail server, so your details are not transmitted or stored.
-          Please call or email us directly.
-        </p>
+        
       </div>
     </form>
   );

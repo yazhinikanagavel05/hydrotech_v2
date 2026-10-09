@@ -26,7 +26,7 @@ export default function About() {
 
   return (
     <main id="main" className="pagetrans">
-      <PageHero
+      <PageHero align="right"
         image={images.aboutMain}
         breadcrumb="About"
         eyebrow="About HydroTech"

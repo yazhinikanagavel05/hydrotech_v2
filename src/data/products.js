@@ -7,8 +7,6 @@ import { images } from "./images.js";
  * not been supplied, so no model numbers, flow rates, thread sizes, prices or
  * certifications are listed. Add those in `specs` only when a real datasheet is
  * available — the product card renders them automatically.
- *
- * `demo: true` marks a slot whose photography is still a stand-in.
  */
 
 export const productCategories = [
@@ -70,7 +68,6 @@ export const products = [
     category: "System control",
     description: "Valves and controllers that decide which zone runs, for how long, and when.",
     image: images.products.control,
-    demo: true,
   },
   {
     id: "filters",
@@ -79,7 +76,6 @@ export const products = [
     category: "System protection",
     description: "Filters that keep sand, algae and particles out of the lines and emitters.",
     image: images.products.filtration,
-    demo: true,
   },
   {
     id: "pipes-fittings",
@@ -88,7 +84,6 @@ export const products = [
     category: "System protection",
     description: "Mainline pipe, connectors and clamps that carry water from source to field.",
     image: images.products.pipes,
-    demo: true,
   },
 ];
 

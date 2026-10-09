@@ -9,9 +9,10 @@ import { imgProps } from "../lib/img.js";
  * Interior page hero: full-bleed photograph, breadcrumb, heading and actions.
  * `align="left"` keeps the text in the lower-left; `center` is used sparingly.
  */
-export default function PageHero({ image, eyebrow, title, lead, actions, breadcrumb, children }) {
+export default function PageHero({ image, eyebrow, title, lead, actions, breadcrumb, align = "left", children }) {
+  const alignClass = align === "right" ? " phero--right" : "";
   return (
-    <section className="phero">
+    <section className={`phero${alignClass}`}>
       <div className="phero__bg" aria-hidden="true">
         <SmartImage
           {...imgProps(image ?? images.aboutMain, {

@@ -4,15 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#123A2A" />
-    <!-- Favicons: the plant/leaf symbol on its own — never the wordmark, which
-         turns to mush below 32px. Generated from logo-mark.png by
-         `npm run images`. The 512 entry is first so a modern browser uses one
-         sharp image; 192 and 32 are fallbacks. The apple-touch-icon is the same
-         symbol in its light colourway on opaque brand green, because iOS paints
-         a transparent PNG's transparency as black. -->
-    <link rel="icon" type="image/png" sizes="512x512" href="/assets/brand/favicon-512.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/favicon-192.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
+    <!-- Favicon: the plant/leaf symbol on its own — never the wordmark, which
+         turns to mush below 32px. logo-mark.png is served directly and the
+         browser downscales it for the tab; it is the same mark the generated
+         favicon-*.png variants were built from, so every surface shows the same
+         symbol. The apple-touch-icon is the same symbol in its light colourway
+         on opaque brand green, because iOS paints a transparent PNG's
+         transparency as black. -->
+    <link rel="icon" type="image/png" href="/assets/brand/logo-mark.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png" />
 
     <title>HydroTech Irrigation | Irrigation Solutions for Agriculture</title>

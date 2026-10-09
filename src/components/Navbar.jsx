@@ -105,10 +105,6 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <Button to="/contact" className="hdr__cta btn--sm" icon={ArrowRight}>
-            Get Irrigation Advice
-          </Button>
-
           <button
             type="button"
             ref={burger}
@@ -149,15 +145,6 @@ export default function Navbar() {
         </nav>
 
         <div className="mnav__foot">
-          <Button
-            to="/contact"
-            variant="lime"
-            size="lg"
-            icon={ArrowRight}
-            onClick={() => setOpen(false)}
-          >
-            Get Irrigation Advice
-          </Button>
           <div className="mnav__contact">
             <small>Call HydroTech</small>
             {phoneNumbers.map((p) => (

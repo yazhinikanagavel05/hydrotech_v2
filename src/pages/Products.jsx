@@ -4,7 +4,6 @@ import { ArrowRight, Package } from "lucide-react";
 import PageHero from "../components/PageHero.jsx";
 import SectionHeader from "../components/SectionHeader.jsx";
 import ProductCard from "../components/ProductCard.jsx";
-import DemoNotice from "../components/DemoNotice.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Button from "../components/Button.jsx";
 import SmartImage from "../components/SmartImage.jsx";
@@ -12,7 +11,7 @@ import { imgProps } from "../lib/img.js";
 
 import { images } from "../data/images.js";
 import { products, productCategories, getProductsByGroup } from "../data/products.js";
-import { demoNotice, phoneNumbers } from "../data/site.js";
+import { phoneNumbers } from "../data/site.js";
 import { useSeo } from "../hooks/useSeo.js";
 import { useReveal } from "../hooks/useUi.js";
 
@@ -102,10 +101,6 @@ export default function Products() {
               need.
             </p>
           )}
-
-          <div className="section-note">
-            <DemoNotice>{demoNotice.products}</DemoNotice>
-          </div>
         </div>
       </section>
 

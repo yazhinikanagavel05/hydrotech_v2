@@ -54,22 +54,18 @@ export default function Contact() {
             {/* --- contact details ------------------------------- */}
             <div className="cinfo">
               <div className="cinfo__card">
-                <SectionHeader
-                  eyebrow="Reach us"
-                  title="Call, email or visit"
-                  as="h2"
-                />
+                <h2 className='t-h2' style={{ marginBottom: 16, fontSize: 'clamp(2rem, 4vw, 2.8rem)' }}>Reach us</h2>
 
                 <div className="cinfo__row">
                   <span className="cinfo__ico">
                     <Phone size={19} aria-hidden="true" />
                   </span>
                   <div>
-                    <small>Phone</small>
+                    
                     {phoneNumbers.map((p, i) => (
                       <span key={p.tel} style={{ display: "block" }}>
                         <a href={`tel:${p.tel}`}>{p.display}</a>
-                        {i === 1 && <span className="alt">Alternate number</span>}
+                        
                       </span>
                     ))}
                   </div>
@@ -80,7 +76,7 @@ export default function Contact() {
                     <Mail size={19} aria-hidden="true" />
                   </span>
                   <div>
-                    <small>Email</small>
+                    
                     <a href={email.mailto} style={{ wordBreak: "break-word" }}>
                       {email.address}
                     </a>
@@ -92,7 +88,7 @@ export default function Contact() {
                     <MapPin size={19} aria-hidden="true" />
                   </span>
                   <div>
-                    <small>Address</small>
+                    
                     <p>
                       {address.line1}
                       <br />
@@ -112,35 +108,11 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="cinfo__row">
-                  <span className="cinfo__ico">
-                    <Navigation size={19} aria-hidden="true" />
-                  </span>
-                  <div>
-                    <small>Area served</small>
-                    <p>{company.serviceArea}</p>
-                  </div>
-                </div>
+                
               </div>
 
-              <div className="cmap reveal">
-                <iframe
-                  title={`Map showing the ${address.line2} area, where ${company.name} is located`}
-                  src={address.mapEmbed}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-              <p className="cmap__note">{address.mapNote}</p>
 
-              <div className="cinfo__card" style={{ padding: 0, overflow: "hidden" }}>
-                  <SmartImage
-                    {...imgProps(images.contact.field, {
-                      sizes: "(max-width: 940px) 92vw, 40vw",
-                      style: { width: "100%", height: "100%" },
-                    })}
-                  />
-              </div>
+              
             </div>
           </div>
         </div>

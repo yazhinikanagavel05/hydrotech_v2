@@ -294,8 +294,8 @@
 }
 .cinfo__row {
   display: flex;
-  gap: 14px;
-  align-items: flex-start;
+  gap: 16px;
+  align-items: center;
 }
 .cinfo__ico {
   flex: none;
@@ -310,7 +310,7 @@
 }
 .cinfo__row small {
   display: block;
-  font-size: 0.66rem;
+  font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -351,7 +351,8 @@
 }
 .cmap iframe {
   width: 100%;
-  height: 380px;
+  height: 410px;
+  margin-bottom: -30px;
   border: 0;
   display: block;
   filter: saturate(0.9);
@@ -365,7 +366,8 @@
 }
 @media (max-width: 620px) {
   .cmap iframe {
-    height: 300px;
+    height: 330px;
+    margin-bottom: -30px;
   }
 }
 
@@ -444,7 +446,7 @@
   border-color: var(--lime);
 }
 .approach b {
-  font-size: 0.76rem;
+  font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 0.2em;
   color: var(--lime);

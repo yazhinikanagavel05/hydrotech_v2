@@ -14,15 +14,7 @@
  *    can never fall out of sync with the manifest — and the build does not
  *    depend on the host choosing a particular npm script.
  *
- * HOW TO REPLACE WITH REAL HYDROTECH PHOTOGRAPHY
- * 1. Add the new masters to `assets/photos/` and remove the demo ones.
- * 2. Point the matching `withPhoto()` name at the new file.
- * 3. Remove the `demo: true` flag for that entry so the "demo imagery" notice
- *    stops appearing in the UI for that slot.
- *
- * Current imagery is licensed demonstration photography (see
- * `public/assets/photos/CREDITS.md`) and is clearly flagged as such on the
- * Projects and Products pages. It is NOT photography of HydroTech installations.
+ * Uses generated variants for responsive images.
  */
 
 import { asset } from "../lib/asset.js";
@@ -37,7 +29,7 @@ const PHOTO = "/assets/photos/gen/";
  */
 export const IMAGE_FALLBACK = {
   src: asset(photo("about-main").src),
-  alt: "HydroTech Irrigation — placeholder image while photography loads",
+  alt: "HydroTech Irrigation"
 };
 
 /**
@@ -47,7 +39,7 @@ export const IMAGE_FALLBACK = {
  * for phones, so a card on a 390px screen does not download a 1800px photo.
  * `lqip` is a ~20px blurred copy inlined as the loading background.
  */
-const withPhoto = (file, alt, { demo = false, focal = "50% 50%" } = {}) => {
+const withPhoto = (file, alt, { focal = "50% 50%" } = {}) => {
   const gen = photo(file);
   return {
     src: asset(gen.src),
@@ -63,7 +55,6 @@ const withPhoto = (file, alt, { demo = false, focal = "50% 50%" } = {}) => {
     width: gen.width,
     height: gen.height,
     alt,
-    demo,
     focal,
   };
 };
@@ -146,15 +137,14 @@ export const images = {
     dripper: withPhoto("prod-accessory", "Close view of a drip irrigation dripper at work"),
     sprinkler: withPhoto("prod-sprinkler", "Sprinkler head fitted to an irrigation line in a field"),
     sprinklerLawn: withPhoto("prod-sprinkler-lawn", "Sprinkler watering an open landscaped area"),
-    control: withPhoto("prod-control", "Field irrigation in operation, water being delivered to a crop row"),
+    control: withPhoto("prod-control", "Agricultural irrigation solenoid valve and electronic controller box"),
     filtration: withPhoto(
       "prod-filter",
-      "Slow sand filter basin used to clean water before it enters an irrigation system"
+      "Plastic agricultural irrigation disc filter installed on a water pipe system"
     ),
     pipes: withPhoto(
       "prod-pipes",
-      "Irrigation pipework laid across a field, connected to a borewell pump",
-      { demo: true }
+      "Irrigation pipework laid across a field, connected to a borewell pump"
     ),
   },
 
@@ -168,17 +158,17 @@ export const images = {
     nursery: withPhoto("app-nursery", "Plant nursery with young saplings arranged for dispatch"),
     greenhouse: withPhoto("app-greenhouse", "Polyhouse structure used for protected cultivation"),
     garden: withPhoto("app-garden", "Maintained green lawn and planting in a garden"),
-    landscape: withPhoto("app-landscape", "Rural landscape near Tirunelveli, Tamil Nadu"),
+    landscape: withPhoto("svc-landscape2", "Formal garden landscape with maintained planting beds"),
   },
 
-  /* --- project showcase (DEMO — replace with HydroTech photos) --- */
+  /* --- project showcase --- */
   projects: {
-    a: withPhoto("proj-field-pipes", "Irrigation pipes running through a cultivated field in the Nilgiris", { demo: true }),
-    b: withPhoto("proj-vineyard", "Vineyard laid out in rows at Cumbum, Tamil Nadu", { demo: true }),
-    c: withPhoto("proj-seedlings", "Irrigated seedling beds being raised in Kerala", { demo: true }),
-    d: withPhoto("proj-tubewell", "Tubewell irrigation supporting horticulture in Gujarat", { demo: true }),
-    e: withPhoto("proj-spraying", "Sprinklers watering a field, water reaching across the crop", { demo: true }),
-    f: withPhoto("proj-peanut", "Groundnut field receiving irrigation in India", { demo: true }),
+    a: withPhoto("proj-field-pipes", "Irrigation pipes running through a cultivated field"),
+    b: withPhoto("proj-vineyard", "Vineyard laid out in rows"),
+    c: withPhoto("proj-seedlings", "Irrigated seedling beds"),
+    d: withPhoto("proj-tubewell", "Tubewell supporting horticulture"),
+    e: withPhoto("proj-spraying", "Sprinklers watering a field"),
+    f: withPhoto("proj-peanut", "Groundnut field under irrigation"),
   },
 
   /* --- contact ------------------------------------------------ */

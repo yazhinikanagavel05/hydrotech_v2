@@ -40,9 +40,11 @@ export function ApplicationRow({ application, index, flip = false }) {
             style: { width: "100%", height: "100%" },
           })}
         />
-        <span className="approw__num" aria-hidden="true">
-          {String(index + 1).padStart(2, "0")}
-        </span>
+        {index != null && (
+          <span className="approw__num" aria-hidden="true">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+        )}
       </div>
       <div className="approw__body">
         <span className="approw__kicker">{application.kicker}</span>

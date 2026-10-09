@@ -164,20 +164,7 @@ export default function HeroSlider({ slides, interval = 6500, label = "Featured 
           ))}
         </div>
 
-        <div className="hero__counter" aria-hidden="true">
-          <b>{String(index + 1).padStart(2, "0")}</b> / {String(count).padStart(2, "0")}
-        </div>
-
         <div className="slider__nav">
-          <button
-            type="button"
-            className="sbtn"
-            onClick={() => setUserPaused((p) => !p)}
-            aria-label={userPaused ? "Resume slideshow" : "Pause slideshow"}
-            aria-pressed={userPaused}
-          >
-            {userPaused ? <Play size={17} aria-hidden="true" /> : <Pause size={17} aria-hidden="true" />}
-          </button>
           <button
             type="button"
             className="sbtn"

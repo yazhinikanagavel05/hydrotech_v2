@@ -150,10 +150,10 @@
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.7rem;
+  gap: 12px;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--navy);
   line-height: 1;
@@ -213,7 +213,7 @@
 }
 
 /* ============================================================
-   Badges / chips / demo tags
+   Badges / chips
    ============================================================ */
 
 .chip {
@@ -233,23 +233,6 @@
   background: rgba(255, 255, 255, 0.08);
   border-color: var(--line-dark);
   color: var(--on-dark);
-}
-
-.demo-tag {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 2;
-  padding: 6px 11px;
-  border-radius: var(--r-sm);
-  background: rgba(8, 26, 19, 0.78);
-  color: #fff;
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  line-height: 1;
-  backdrop-filter: blur(4px);
 }
 
 .notice {
@@ -362,7 +345,7 @@
 .hdr__logo {
   flex: none;
   display: block;
-  height: 34px;
+  height: 46px;
   width: auto;
   transition: opacity var(--dur-fast) var(--ease);
 }
@@ -444,10 +427,6 @@
   color: #fff;
   background-color: rgba(255, 255, 255, 0.1);
 }
-/* The current page also gets a lime label and a lime underline, so the
-   active state is never signalled by colour alone. --lime-soft rather than
-   --lime: the softer lime is roughly twice as light, which is what keeps a
-   16px link legible against the photograph showing through the scrim. */
 .hdr.is-overHero .hdr__link.is-active {
   color: var(--lime-soft);
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
@@ -715,7 +694,7 @@
 .splash__logo {
   position: absolute;
   bottom: 6%;
-  width: min(230px, 62vw);
+  width: min(280px, 68vw);
   opacity: 0;
   transform: translateY(22px);
   animation: splashLogo 1s var(--ease-out) 0.5s forwards;

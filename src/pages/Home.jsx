@@ -10,13 +10,12 @@ import CTASection from "../components/CTASection.jsx";
 import Button from "../components/Button.jsx";
 import SmartImage from "../components/SmartImage.jsx";
 import { imgProps } from "../lib/img.js";
-import DemoNotice from "../components/DemoNotice.jsx";
 
 import { images } from "../data/images.js";
 import { solutions, additionalServices, gettingStarted, planningFactors, focusAreas } from "../data/services.js";
 import { productShowcase } from "../data/products.js";
 import { applications } from "../data/applications.js";
-import { company, demoNotice, phoneNumbers } from "../data/site.js";
+import { company, phoneNumbers } from "../data/site.js";
 import { useSeo } from "../hooks/useSeo.js";
 import { useReveal } from "../hooks/useUi.js";
 
@@ -228,9 +227,6 @@ export default function Home() {
                 node: <ProductCard product={p} />,
               }))}
             />
-          </div>
-          <div className="section-note">
-            <DemoNotice>{demoNotice.products}</DemoNotice>
           </div>
         </div>
       </section>

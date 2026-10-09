@@ -73,16 +73,3 @@ export const primaryCta = {
   to: "/contact",
 };
 
-/**
- * Shown wherever a project detail, statistic or testimonial would otherwise
- * require information HydroTech has not published. Keeping this in one place
- * makes it obvious in review that the gap is intentional.
- */
-export const demoNotice = {
-  projects:
-    "Project showcase coming soon. The images below are demonstration photography and not photographs of HydroTech installations.",
-  products:
-    "Product photography is being prepared. Images below are demonstration photography; product names describe categories, not specific models.",
-  applications:
-    "Images are demonstration photography. Application notes describe typical irrigation needs, not HydroTech case studies.",
-};

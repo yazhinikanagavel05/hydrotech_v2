@@ -16,7 +16,9 @@ export function ServiceCard({ service, index }) {
           })}
         />
       </div>
-      <span className="svc__index">{String(index + 1).padStart(2, "0")}</span>
+      {index != null && (
+        <span className="svc__index">{String(index + 1).padStart(2, "0")}</span>
+      )}
       <div className="svc__body">
         <span className="svc__kicker">{service.kicker}</span>
         <h3 className="t-h3 svc__title">{service.name}</h3>

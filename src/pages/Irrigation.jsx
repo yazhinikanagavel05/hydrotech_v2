@@ -2,7 +2,7 @@ import { Check, Info, ArrowRight, Droplets, Sun, Timer } from "lucide-react";
 
 import PageHero from "../components/PageHero.jsx";
 import SectionHeader from "../components/SectionHeader.jsx";
-import ServiceCardLight from "../components/ServiceCard.jsx";
+import { ServiceCardLight } from "../components/ServiceCard.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Button from "../components/Button.jsx";
 import SmartImage from "../components/SmartImage.jsx";
@@ -28,7 +28,7 @@ export default function Irrigation() {
 
   return (
     <main id="main" className="pagetrans">
-      <PageHero
+      <PageHero align="right"
         image={images.solutions.drip}
         breadcrumb="Irrigation"
         eyebrow="Irrigation systems"
@@ -174,7 +174,7 @@ export default function Irrigation() {
             }
             className="reveal"
           />
-          <div className="grid" style={{ "--gap": 22, gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", marginTop: 44 }}>
+          <div className="grid" style={{ "--gap": "22px", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", marginTop: 44 }}>
             {additionalServices.map((s) => (
               <ServiceCardLight key={s.title} service={{ ...s, points: null }} />
             ))}

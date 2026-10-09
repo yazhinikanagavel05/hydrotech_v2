@@ -22,7 +22,6 @@ export default function ProductCard({ product }) {
           })}
         />
         <span className="pcard__cat">{product.category}</span>
-        {product.demo && <span className="demo-tag">Demo image</span>}
       </div>
       <div className="pcard__body">
         <h3 className="pcard__name">{product.name}</h3>

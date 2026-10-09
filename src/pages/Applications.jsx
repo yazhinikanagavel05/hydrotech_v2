@@ -5,13 +5,11 @@ import SectionHeader from "../components/SectionHeader.jsx";
 import { ApplicationRow } from "../components/ApplicationCard.jsx";
 import ApplicationCard from "../components/ApplicationCard.jsx";
 import Carousel from "../components/Carousel.jsx";
-import DemoNotice from "../components/DemoNotice.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Button from "../components/Button.jsx";
 
 import { images } from "../data/images.js";
 import { applications } from "../data/applications.js";
-import { demoNotice } from "../data/site.js";
 import { useSeo } from "../hooks/useSeo.js";
 import { useReveal } from "../hooks/useUi.js";
 
@@ -28,7 +26,7 @@ export default function Applications() {
 
   return (
     <main id="main" className="pagetrans">
-      <PageHero
+      <PageHero align="right"
         image={images.applications.fieldCrops}
         breadcrumb="Applications"
         eyebrow="Applications"
@@ -81,9 +79,6 @@ export default function Applications() {
                 node: <ApplicationCard application={a} ctaLabel="Enquire about this" />,
               }))}
             />
-          </div>
-          <div className="section-note">
-            <DemoNotice>{demoNotice.applications}</DemoNotice>
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, MapPin, ImageOff } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 
 import SmartImage from "./SmartImage.jsx";
 import { imgProps } from "../lib/img.js";
@@ -7,9 +7,8 @@ import { imgProps } from "../lib/img.js";
 /**
  * Project showcase card.
  *
- * `demo: true` renders a visible "Demo image" tag plus a status line. It never
- * shows a client name, acreage, saving percentage or date, because none of that
- * has been verified by HydroTech.
+ * It never shows a client name, acreage, saving percentage or date, because
+ * none of that has been verified by HydroTech.
  */
 export default function ProjectCard({ project }) {
   return (
@@ -21,7 +20,6 @@ export default function ProjectCard({ project }) {
             style: { width: "100%", height: "100%" },
           })}
         />
-        {project.demo && <span className="demo-tag">Demo image</span>}
       </div>
       <div className="proj__body">
         <div className="proj__meta">
@@ -32,18 +30,11 @@ export default function ProjectCard({ project }) {
         <p className="proj__text">{project.overview}</p>
 
         <div className="proj__foot">
-          {project.demo ? (
-            <span className="proj__status">
-              <ImageOff size={13} aria-hidden="true" />
-              Placeholder entry
+          {project.location && (
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+              <MapPin size={14} aria-hidden="true" />
+              {project.location}
             </span>
-          ) : (
-            project.location && (
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-                <MapPin size={14} aria-hidden="true" />
-                {project.location}
-              </span>
-            )
           )}
           <Link to="/contact" className="link-arrow" style={{ fontSize: "0.86rem" }}>
             Discuss a similar project

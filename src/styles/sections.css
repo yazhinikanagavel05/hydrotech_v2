@@ -157,7 +157,7 @@
   background: var(--forest-50);
 }
 .step__n {
-  font-size: 0.76rem;
+  font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 0.18em;
   color: var(--forest-600);
@@ -454,7 +454,7 @@
   background: rgba(255, 255, 255, 0.11);
 }
 .cta__side small {
-  font-size: 0.66rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -504,20 +504,21 @@
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--forest-500), transparent);
 }
-/* The contact column is widened so the email address sits on one line on a
-   desktop, instead of being squeezed into a stack of broken fragments. */
+/* Three columns: brand block, explore links, and the location map. The map
+   column carries enough width that it reads as a real panel rather than a
+   sliver, and the shared gap keeps the three columns on the same rhythm. */
 .ftr__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.62fr) minmax(0, 0.8fr) minmax(0, 1.28fr);
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.62fr) minmax(0, 1.2fr);
   gap: clamp(28px, 3.6vw, 48px);
   padding-bottom: clamp(40px, 5vw, 62px);
 }
 /* The white logo asset is already transparent. Nothing is painted behind it —
    no plate, no tint, no filter — so it sits straight on the dark footer. */
 .ftr__logo {
-  height: 42px;
+  height: 58px;
   width: auto;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   background: none;
 }
 .ftr__about p {
@@ -527,7 +528,7 @@
   max-width: 38ch;
 }
 .ftr h3 {
-  font-size: 0.68rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -559,72 +560,34 @@
 .ftr__list a:hover::before {
   width: 12px;
 }
-.ftr__contact {
-  display: grid;
-  gap: 16px;
+/* The contact column now holds the location map. The wrapper is the sizing
+   box so the iframe can never be wider than its column — the map stays inside
+   the footer grid at every width. */
+.ftr__location {
+  min-width: 0;
 }
-.ftr__contact a,
-.ftr__contact > span {
-  display: flex;
-  gap: 12px;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: var(--on-dark-muted);
+.ftr__map {
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+  background: var(--forest-900);
+  line-height: 0;
 }
-.ftr__contact svg {
-  flex: none;
-  margin-top: 3px;
-  color: var(--forest-400);
-}
-.ftr__contact a:hover {
-  color: #fff;
-}
-/* Anything a visitor would actually use — a number to call, an address to
-   type — is white. Supporting detail stays muted. The selector is qualified by
-   .ftr__contact so it outranks the muted colour set on the generic rule
-   above, which would otherwise win on specificity. */
-.ftr__contact .ftr__contact__key {
-  color: #fff;
-  font-weight: 600;
-}
-.ftr__contact .ftr__contact__key a {
-  color: #fff;
-  font-weight: 700;
-}
-.ftr__contact .ftr__contact__key a:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.ftr__contact__mail {
-  /* `normal` keeps the address breaking at its own dots on narrow screens
-     instead of hyphenating it at an arbitrary letter. */
-  word-break: normal;
-  overflow-wrap: break-word;
-  hyphens: none;
-}
-@media (min-width: 1200px) {
-  .ftr__contact .ftr__contact__mail {
-    white-space: nowrap;
-    overflow-wrap: normal;
-  }
-}
-.ftr__contact__maps {
-  font-size: 0.86rem;
-  color: var(--lime-soft);
-  gap: 8px;
-}
-.ftr__contact__maps:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.ftr__map iframe {
+  width: 100%;
+  height: 260px;
+  border: 0;
+  display: block;
 }
 .ftr__bottom {
   border-top: 1px solid var(--line-dark);
   padding-block: 24px 30px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 14px;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
   font-size: 0.8rem;
   color: var(--on-dark-muted);
 }
@@ -633,15 +596,34 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+.ftr__credit a {
+  color: #fff;
+  font-weight: 700;
+  margin-left: 0.4em;
+}
+.ftr__credit a:hover {
+  color: var(--lime-soft);
+}
 @media (max-width: 1100px) {
   .ftr__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* The map drops to its own full-width row so it never lands in a cramped
+     half-column beside the explore links. */
+  .ftr__location {
+    grid-column: 1 / -1;
+  }
+  .ftr__map iframe {
+    height: 300px;
   }
 }
 @media (max-width: 560px) {
   .ftr__grid {
     grid-template-columns: 1fr;
     gap: 34px;
+  }
+  .ftr__map iframe {
+    height: 230px;
   }
 }
 

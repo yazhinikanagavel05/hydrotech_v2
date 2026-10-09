@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 import { navItems } from "../data/nav.js";
-import { company, phoneNumbers, email, address } from "../data/site.js";
+import { company, address } from "../data/site.js";
 import { images } from "../data/images.js";
 
 /** Dark footer using the light HydroTech logo. */
 export default function Footer() {
   const year = new Date().getFullYear();
+  const mapQuery = encodeURIComponent(
+    `${address.line1}, ${address.line2}, ${address.region} ${address.pin}, ${address.country}`
+  );
 
   return (
     <footer className="ftr">
@@ -39,60 +41,15 @@ export default function Footer() {
             </nav>
           </div>
 
-          <div>
-            <h3>Solutions</h3>
-            <ul className="ftr__list">
-              <li>
-                <Link to="/irrigation#drip">Drip Irrigation</Link>
-              </li>
-              <li>
-                <Link to="/irrigation#sprinkler">Sprinkler Irrigation</Link>
-              </li>
-              <li>
-                <Link to="/irrigation#automation">Irrigation Automation</Link>
-              </li>
-              <li>
-                <Link to="/applications">Applications</Link>
-              </li>
-              <li>
-                <Link to="/products">Products</Link>
-              </li>
-              <li>
-                <Link to="/projects">Projects</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3>Contact</h3>
-            <div className="ftr__contact">
-              <span className="ftr__contact__key">
-                <Phone size={17} aria-hidden="true" />
-                <span>
-                  {phoneNumbers.map((p, i) => (
-                    <span key={p.tel}>
-                      {i > 0 && <br />}
-                      <a href={`tel:${p.tel}`}>{p.display}</a>
-                    </span>
-                  ))}
-                </span>
-              </span>
-              <a href={email.mailto} className="ftr__contact__key">
-                <Mail size={17} aria-hidden="true" />
-                <span className="ftr__contact__mail">{email.address}</span>
-              </a>
-              <span>
-                <MapPin size={17} aria-hidden="true" />
-                <span>
-                  {address.line1},<br />
-                  {address.line2},<br />
-                  {address.region} — {address.pin}
-                </span>
-              </span>
-              <a href={address.mapLink} className="ftr__contact__maps" target="_blank" rel="noreferrer noopener">
-                <ArrowUpRight size={17} aria-hidden="true" />
-                <span>Open location in maps</span>
-              </a>
+          <div className="ftr__location">
+            <h3>Location</h3>
+            <div className="ftr__map">
+              <iframe
+                title={`Map showing the location of ${company.name}, ${address.line1}, ${address.line2}, ${address.region} ${address.pin}`}
+                src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>
@@ -101,8 +58,11 @@ export default function Footer() {
           <span>
             © {year} {company.name}. All rights reserved.
           </span>
-          <span>
-            Drip · Sprinkler · Automation · Nursery · Landscaping — {address.region}
+          <span className="ftr__credit">
+            Designed &amp; Developed by{" "}
+            <a href="https://pizodesigns.com/" target="_blank" rel="noreferrer noopener">
+              Pizo Designs
+            </a>
           </span>
         </div>
       </div>

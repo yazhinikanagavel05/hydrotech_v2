@@ -3,12 +3,10 @@ import { ArrowRight } from "lucide-react";
 import PageHero from "../components/PageHero.jsx";
 import SectionHeader from "../components/SectionHeader.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
-import DemoNotice from "../components/DemoNotice.jsx";
 import CTASection from "../components/CTASection.jsx";
 import Button from "../components/Button.jsx";
 import { projects, projectsEmptyState } from "../data/projects.js";
 import { images } from "../data/images.js";
-import { demoNotice } from "../data/site.js";
 import { useSeo } from "../hooks/useSeo.js";
 import { useReveal } from "../hooks/useUi.js";
 
@@ -16,7 +14,7 @@ export default function Projects() {
   useSeo({
     title: "Projects | Irrigation Installations | HydroTech Irrigation",
     description:
-      "Irrigation layouts and installations for fields, orchards, nurseries and open areas. Project photography from HydroTech installations is being added.",
+      "Irrigation layouts and installations for fields, orchards, nurseries and open areas.",
     path: "/projects",
     image: images.projects.a.src,
   });
@@ -30,7 +28,7 @@ export default function Projects() {
         breadcrumb="Projects"
         eyebrow="Projects"
         title="Irrigation, laid out on real land"
-        lead="This page shows how irrigation layouts work in practice. The images below are demonstration photography — HydroTech's own installation photographs will replace them as they are published."
+        lead="This page shows how irrigation layouts work in practice — from open-field zones to nursery beds and water supply."
         actions={
           <>
             <Button to="/contact" variant="lime" size="lg" icon={ArrowRight}>
@@ -74,10 +72,6 @@ export default function Projects() {
                 ))}
               </div>
             )}
-          </div>
-
-          <div className="section-note">
-            <DemoNotice>{demoNotice.projects}</DemoNotice>
           </div>
         </div>
       </section>
