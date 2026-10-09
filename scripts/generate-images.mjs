@@ -239,9 +239,10 @@ if (existsSync(markPath)) {
  * fraction of the canvas, applied to the width so a wide mark keeps as
  * much of the small-size height as it can.
  */
-const square = (size, inset, background) =>
-  sharp(trimmedMark)
-    .resize({ width: Math.round(size * (1 - inset * 2)) })
+const square = (size, inset, background) => {
+  const maxDim = Math.round(size * (1 - inset * 2));
+  return sharp(trimmedMark)
+    .resize({ width: maxDim, height: maxDim, fit: "inside" })
     .png()
     .toBuffer()
     .then((mark) =>
@@ -252,6 +253,7 @@ const square = (size, inset, background) =>
         .png({ compressionLevel: 9 })
         .toFile(join(brandDir, `favicon-${size}.png`))
     );
+};
 
 const transparent = { r: 0, g: 0, b: 0, alpha: 0 };
 // 4% margin: the symbol reaches almost the full width of the tab.
@@ -259,28 +261,16 @@ await square(512, 0.04, transparent);
 await square(192, 0.04, transparent);
 await square(32, 0.04, transparent);
 
-// iOS home screen: same symbol, light colourway, opaque brand green.
-if (existsSync(lightLogoPath)) {
-  const lightBox = await inkBox(lightLogoPath);
-  // Take the symbol out of the light lockup: everything left of the
-  // wordmark, which is the first three shapes.
-  const symbol = await sharp(lightLogoPath)
-    .extract({ left: 0, top: lightBox.top, width: Math.round(lightBox.width * 0.36), height: lightBox.height })
-    .png()
-    .toBuffer();
-  const sb = await inkBoxFromBuffer(symbol);
-  const tight = await sharp(symbol).extract(sb).png().toBuffer();
-  await sharp(tight)
-    .resize({ width: Math.round(180 * 0.66) })
-    .png()
-    .toBuffer()
-    .then((mark) =>
-      sharp({ create: { width: 180, height: 180, channels: 4, background: { r: 13, g: 42, b: 30, alpha: 1 } } })
-        .composite([{ input: mark, gravity: "centre" }])
-        .png({ compressionLevel: 9 })
-        .toFile(join(brandDir, "apple-touch-icon.png"))
-    );
-}
+// iOS home screen: same symbol on opaque brand green.
+const touchDim = Math.round(180 * 0.72);
+const touchMark = await sharp(trimmedMark)
+  .resize({ width: touchDim, height: touchDim, fit: "inside" })
+  .png()
+  .toBuffer();
+await sharp({ create: { width: 180, height: 180, channels: 4, background: { r: 13, g: 42, b: 30, alpha: 1 } } })
+  .composite([{ input: touchMark, gravity: "centre" }])
+  .png({ compressionLevel: 9 })
+  .toFile(join(brandDir, "apple-touch-icon.png"));
 
 process.stdout.write(`  ${"brand favicons".padEnd(26)}    4 icons (symbol only)\n`);
 
