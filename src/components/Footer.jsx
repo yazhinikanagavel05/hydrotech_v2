@@ -58,6 +58,9 @@ export default function Footer() {
           <span>
             © {year} {company.name}. All rights reserved.
           </span>
+          <span className="ftr__sep" aria-hidden="true">
+            |
+          </span>
           <span className="ftr__credit">
             Designed &amp; Developed by{" "}
             <a href="https://pizodesigns.com/" target="_blank" rel="noreferrer noopener">

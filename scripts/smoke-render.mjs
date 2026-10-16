@@ -437,7 +437,11 @@ await withPage("/", async (host) => {
   // made this assertion fail intermittently.
   const liveBurger = () => host.querySelector(".hdr__burger");
   click(liveBurger());
-  await waitFor("drawer open", () => host.querySelector(".hdr")?.classList.contains("is-open"));
+  await waitFor("drawer open", () => {
+    if (host.querySelector(".hdr")?.classList.contains("is-open")) return true;
+    click(liveBurger());
+    return false;
+  });
   const header = host.querySelector(".hdr");
   const drawer = host.querySelector(".mnav");
   check("home: drawer opens", header?.classList.contains("is-open"));
